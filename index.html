@@ -13,30 +13,37 @@
 
 <body>
     <div class="container">
-        <div class="video">
-            <!-- <video src="/background.mp4" muted autoplay></video> -->
-            <img src="/assets/bg-gif.gif" alt="">
-        </div>
-        <canvas class="canvas"></canvas>
-        <div class="section-container">
-            <div class="section-one">
-                <nav>
-                    <ul>
-                        <li>Home</li>
-                        <li>Home</li>
-                        <li>Home</li>
-                        <li>Home</li>
-                    </ul>
-                </nav>
+        <div class="hide-container">
+            <div class="video">
+                <img class="img" src="/assets/city-bg-ms.gif" alt="">
             </div>
-            <div class="section-two">
-                <h1>Section 2</h1>
-            </div>
-            <div class="section-three">Section 3</div>
-            <div class="section-four">Section 4</div>
-        </div>
+            <canvas class="canvas"></canvas>
+            <div class="section-container">
+                <div class="section-one">
+                    <nav>
+                        <ul>
+                            <h3>Secondary Navbar</h1>
+                                <!-- <button class="city">City</button>
+                            <button class="mountain">Mountain</button>
+                            <button class="sports">Sports</button> -->
 
+                        </ul>
+                    </nav>
+                </div>
+                <div class="section-two">
+
+                </div>
+                <div class="section-three"></div>
+                <div class="section-four"></div>
+            </div>
+        </div>
+        <div class="preference">
+            <button class="city">City</button>
+            <button class="mountain">Mountain</button>
+            <button class="sports">Sports</button>
+        </div>
     </div>
+    <script src="/script.js"></script>
     <script src="https://unpkg.com/three@0.157.0/build/three.min.js"></script>
     <script src="https://unpkg.com/three@0.146.0/examples/js/loaders/GLTFLoader.js"></script>
     <script type="importmap">
@@ -47,6 +54,7 @@
           }
         }
       </script>
+
     <script type="module">
         // Load the Three.js library (make sure it's properly included in your project)
         // Create a Three.js scene and camera
@@ -115,59 +123,14 @@
 
             const tl = gsap.timeline({});
             tl.to(models.bike.position, { x: 11.5, scrub: 0.4 }, section)
-            // Animate the camera's position
-            // tl.to(camera.position, { x: 0, y: 0, z: 1, scrub: 0.4, duration: 6 }, 0).to(camera.position, { x: 0, y: 0, z: 4, scrub: 0.4 }, 0)
             ScrollTrigger.create({
                 animation: tl,
-                trigger: ".section-container",
+                trigger: ".hide-container",
                 start: "top top",
                 end: "bottom bottom",
                 markers: true,
                 scrub: 0.4,
             });
-
-
-            // const timeline = gsap.timeline({
-            //     scrollTrigger: {
-            //         trigger: ".section-one",
-            //         start: "top top",
-            //         end: "bottom 50%",
-            //         markers: true,
-            //         scrub: 0.5,
-            //         duration: 10,
-            //     },
-            // });
-
-            // timeline.to(camera.position, { z: 3 })
-
-
-            // const timeline2 = gsap.timeline({
-            //     scrollTrigger: {
-            //         trigger: ".section-two",
-            //         start: "top 50%",
-            //         end: "bottom bottom",
-            //         markers: true,
-            //         scrub: 0.5,
-            //         duration: 10,
-            //     },
-            // });
-
-            // timeline2.to(camera.position, { z: 5, duration: 6 })
-
-
-
-            // const t2 = gsap.timeline({});
-            // t2.to(models.bike.position, { x: -9, scrub: true }, section);
-
-            // ScrollTrigger.create({
-            //     animation: t2,
-            //     trigger: ".section-two",
-            //     start: "top top",
-            //     end: "bottom bottom",
-            //     markers: true,
-            //     scrub: true
-            // });
-
         }
 
         const loadingManager = new THREE.LoadingManager(() => {
@@ -200,6 +163,9 @@
         };
 
         animate();
+
+
+
     </script>
 </body>
 
